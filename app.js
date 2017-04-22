@@ -90,7 +90,7 @@
   MainController.prototype.search_ = function() {
     var searchText = $('#search-text').val().trim();
 
-    var url = 'http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates' +
+    var url = 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates' +
       '?SingleLine={SEARCH}&outFields=*&f=pjson' +
       '&forStorage=true&token={TOKEN}';
     // FIXME token must be generated
