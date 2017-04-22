@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Geocoding</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://openlayers.org/en/v4.1.0/css/ol.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body ng-app="geocoderApp" ng-controller="mainController as mainCtrl">
+    <div id="sidebar">
+        <div class="sidebar-header">
+            <h3>Search for a location</h3>
+            <form id="search-form">
+                <input type="text" id="search-text" placeholder="City, county, region, ..."/>
+                <button type="submit">Search</button>
+                <a href="#" ng-click="mainCtrl.clear()" ng-if="mainCtrl.results">Clear</a>
+            </form>
+        </div>
+        <div ng-if="mainCtrl.loading" class="loading">
+            Loading
+        </div>
+        <div ng-if="mainCtrl.results && mainCtrl.results.length == 0">
+            No results founds!
+        </div>
+        <div class="results" ng-if="mainCtrl.results && mainCtrl.results.length > 0">
+            <p>Results: {{ mainCtrl.results.length }}</p>
+            <div ng-repeat="place in mainCtrl.results" class="place">
+                <p>
+                    {{ place.get('pos') }}.
+                    <span class="place-type">{{ place.get('Type') }}</span>
+                    <span class="zoom-to">
+                        <a href="#" ng-click="mainCtrl.zoomTo(place)">Zoom to</a>
+                    </span>
+
+                </p>
+                <p>{{ place.get('label') }}<br />
+                    <span class="coordinates">
+                        ({{ place.get('X') }}, {{ place.get('Y') }})
+                    </span>
+                </p>
+                <p></p>
+            </div>
+        </div>
+    </div>
+    <div id="map">
+        <div class="selected-place place" ng-if="mainCtrl.selectedPlace">
+            <p>
+                {{ mainCtrl.selectedPlace.get('pos') }}.
+                <span class="place-type">{{ mainCtrl.selectedPlace.get('Type') }}</span>
+            </p>
+            <p>{{ mainCtrl.selectedPlace.get('label') }}<br />
+                <span class="coordinates">
+                    ({{ mainCtrl.selectedPlace.get('X') }}, {{ mainCtrl.selectedPlace.get('Y') }})
+                </span>
+            </p>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="http://openlayers.org/en/v4.1.0/build/ol.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
