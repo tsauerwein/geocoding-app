@@ -94,7 +94,7 @@
       '?SingleLine={SEARCH}&outFields=*&f=pjson' +
       '&forStorage=true&token={TOKEN}';
     // FIXME token must be generated
-    var token = 'nE-dOv1N5Ahosr-4Me9vHDYPc8RbYU2eAnOtJSJr4CGghK93yqA_ZzZgi7UFQ3q8fIenQ7S5alqsKl5oQj4el9shRy-Sl6InQ5jfSmZVf4PiXW0pLrRFVWboxshEUr-w8QrpVQ6037jGTPM0dKf2oA..'
+    var token = 'usV5jzylL_3gH6tX5i0BvAhFtom4Q7QJp2XB1CTSc2RaZAMdzeJmWEcQt9tffnYVZhGgN3qkcQ59hGEdhlMphLdcWpaWXxUmqRGgzWQD8GGoaIgamFK5aBLB5LIVEKWHiGkFMk_DzYDVbIu9CUrKsQ'
 
     // FIXME urlencode search text?
     url = url
