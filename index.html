@@ -5,7 +5,7 @@
     <title>Geocoding</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://openlayers.org/en/v4.1.0/css/ol.css">
-    <link rel="stylesheet" href="style.css?1">
+    <link rel="stylesheet" href="style.css?2">
 
 </head>
 <body ng-app="geocoderApp" ng-controller="mainController as mainCtrl">
@@ -20,6 +20,9 @@
         </div>
         <div ng-if="mainCtrl.loading" class="loading">
             Loading
+        </div>
+        <div ng-if="mainCtrl.error" class="error">
+            {{ mainCtrl.error }}
         </div>
         <div ng-if="mainCtrl.results && mainCtrl.results.length == 0">
             No results founds!
@@ -62,6 +65,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://openlayers.org/en/v4.1.0/build/ol.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.min.js"></script>
-    <script src="app.js?3"></script>
+    <script src="app.js?4"></script>
 </body>
 </html>

@@ -7,6 +7,7 @@
     this.results = null;
     this.loading = false;
     this.selectedPlace = null;
+    this.error = null;
     $('#search-form').submit(this.search_.bind(this));
   };
 
@@ -94,7 +95,7 @@
       '?SingleLine={SEARCH}&outFields=*&f=pjson' +
       '&forStorage=true&token={TOKEN}';
     // FIXME token must be generated
-    var token = 'usV5jzylL_3gH6tX5i0BvAhFtom4Q7QJp2XB1CTSc2RaZAMdzeJmWEcQt9tffnYVZhGgN3qkcQ59hGEdhlMphLdcWpaWXxUmqRGgzWQD8GGoaIgamFK5aBLB5LIVEKWHiGkFMk_DzYDVbIu9CUrKsQ'
+    var token = '7kWn3qsQw5Pi-5M93cUoZp2j_rNRnyVi79A5VmAQh4NYoscq5GktjnSqDzoeDAEsBniCTNEVGhHH289ceoDM3xCkZxDHTLrhVoxi7GYW5p_4XdHdG_8IVvwISrjjfbMcHKFBxRbrrNRDz494i5BCRg..';
 
     // FIXME urlencode search text?
     url = url
@@ -105,8 +106,11 @@
     this.poiSource_.clear();
     this.loading = true;
     this.selectedPlace = null;
+    this.error = null;
     $.getJSON(url, function(data) {
-      if (data.candidates.length > 0) {
+      if (data.error) {
+        this.error = 'Error: ' + data.error.message;
+      } else if (data.candidates.length > 0) {
         var features = [];
         for (var i = 0; i < data.candidates.length; i++) {
           var candidate = data.candidates[i];
@@ -141,6 +145,7 @@
     $('#search-text').val('');
     this.results = null;
     this.poiSource_.clear();
+    this.error = null;
     this.selectedPlace = null;
   };
 
