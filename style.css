@@ -82,3 +82,13 @@ html, body {
 .error {
     color: #a3111e;
 }
+
+.type-Neighborhood,
+.type-City,
+.type-Subregion,
+.type-Region,
+.type-County,
+.type-NationalCapital,
+.type-StateorProvince {
+    font-weight: bold;
+}

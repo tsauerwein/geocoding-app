@@ -125,6 +125,7 @@
             ], 'EPSG:4326', 'EPSG:3857');
           attributes.label = candidate.address;
           attributes.copyText = candidate.address + ' (' + attributes.X + ', ' + attributes.Y + ')';
+          attributes.normalizedType = attributes.Type.replace(new RegExp(' ', 'g'), '');
           attributes.pos = i + 1;
 
           var feature = new ol.Feature(attributes);
