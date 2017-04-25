@@ -5,7 +5,7 @@
     <title>Geocoding</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://openlayers.org/en/v4.1.0/css/ol.css">
-    <link rel="stylesheet" href="style.css?2">
+    <link rel="stylesheet" href="style.css?3">
 
 </head>
 <body ng-app="geocoderApp" ng-controller="mainController as mainCtrl">
@@ -36,6 +36,9 @@
                     <span class="zoom-to">
                         <a href="#" ng-click="mainCtrl.zoomTo(place)">Zoom to</a>
                     </span>
+                    <span class="copy" ng-if="mainCtrl.copySupported">
+                        <a href="#" clipboard text="place.get('copyText')">Copy</a>
+                    </span>
 
                 </p>
                 <p>{{ place.get('label') }}<br />
@@ -52,6 +55,9 @@
             <p>
                 {{ mainCtrl.selectedPlace.get('pos') }}.
                 <span class="place-type">{{ mainCtrl.selectedPlace.get('Type') }}</span>
+                <span class="copy" ng-if="mainCtrl.copySupported">
+                    <a href="#" clipboard text="mainCtrl.selectedPlace.get('copyText')">Copy</a>
+                </span>
             </p>
             <p>{{ mainCtrl.selectedPlace.get('label') }}<br />
                 <span class="coordinates">
@@ -65,6 +71,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://openlayers.org/en/v4.1.0/build/ol.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.min.js"></script>
-    <script src="app.js?4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-clipboard/1.5.0/angular-clipboard.min.js"></script>
+    <script src="app.js?5"></script>
 </body>
 </html>

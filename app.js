@@ -1,5 +1,5 @@
 (function() {
-  var MainController = function($scope) {
+  var MainController = function($scope, clipboard) {
     this.$scope_ = $scope;
     this.map_ = this.createMap_();
     this.poiSource_ = new ol.source.Vector();
@@ -8,6 +8,7 @@
     this.loading = false;
     this.selectedPlace = null;
     this.error = null;
+    this.copySupported = clipboard.supported;
     $('#search-form').submit(this.search_.bind(this));
   };
 
@@ -123,6 +124,7 @@
               candidate.extent.xmax, candidate.extent.ymax
             ], 'EPSG:4326', 'EPSG:3857');
           attributes.label = candidate.address;
+          attributes.copyText = candidate.address + ' (' + attributes.X + ', ' + attributes.Y + ')';
           attributes.pos = i + 1;
 
           var feature = new ol.Feature(attributes);
@@ -158,8 +160,8 @@
   };
 
 
-  var module = angular.module('geocoderApp', []);
-  module.controller('mainController', ['$scope', MainController]);
+  var module = angular.module('geocoderApp', ['angular-clipboard']);
+  module.controller('mainController', ['$scope', 'clipboard', MainController]);
 
 
 })();
