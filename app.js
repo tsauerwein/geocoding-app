@@ -96,7 +96,7 @@
       '?SingleLine={SEARCH}&outFields=*&f=pjson' +
       '&forStorage=true&token={TOKEN}';
     // FIXME token must be generated
-    var token = '7kWn3qsQw5Pi-5M93cUoZp2j_rNRnyVi79A5VmAQh4NYoscq5GktjnSqDzoeDAEsBniCTNEVGhHH289ceoDM3xCkZxDHTLrhVoxi7GYW5p_4XdHdG_8IVvwISrjjfbMcHKFBxRbrrNRDz494i5BCRg..';
+    var token = 'tjuZALvuyYcv9D-CYM-KcoTNO_LNWYRYO_gzWJEqsIGzzOTvOwXeh_oO0NrXt9K74xBBN10aM-ZgYqWRP9bsMU6UdvLye7A3LnHjb7k1fKiaGtnW92XINVtYk2Oh_iYKAEZ0Kecuhcg_Jtivbq-25g..';
 
     // FIXME urlencode search text?
     url = url
